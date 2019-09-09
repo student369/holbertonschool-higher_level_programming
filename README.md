@@ -1,7 +1,8 @@
 # A project about Python required to Holberton School
 In this proyect you will find this projects:
+
 | Task | Description |
-|------|-------------|
+| ---- | ----------- |
 | 0-run | A shell script that run a python sentence. |
 | 1-run_inline | A shell script that run some python code. |
 | 2-print.py | A Python script that prints some text. |
