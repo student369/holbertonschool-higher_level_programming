@@ -1,6 +1,7 @@
 # A Python project to learn conditions, loops and functions.
 
 This project hace the followed tasks:
+
 | Task | Description |
 | ---- | ----------- |
 | 0-positive_or_negative.py | Python script to show if a random number is positive or negative. |
