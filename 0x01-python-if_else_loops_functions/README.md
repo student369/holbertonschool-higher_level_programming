@@ -1,6 +1,6 @@
 # A Python project to learn conditions, loops and functions.
 
-This project hace the followed tasks:
+This project have the followed tasks:
 
 | Task | Description |
 | ---- | ----------- |
