@@ -7,6 +7,8 @@
  */
 int check_cycle(listint_t *list)
 {
+	if (list == NULL || list->next == NULL)
+		return (0);
 	listint_t *c = list, *n = list;
 
 	c = c->next;
