@@ -22,7 +22,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 		n++;
 	}
-	if (n == 1)
+	if (n == 1 || current->n == current->next->n)
 		return (1);
 	numbers = (int *)malloc(sizeof(int) * n);
 	if (numbers == NULL)
