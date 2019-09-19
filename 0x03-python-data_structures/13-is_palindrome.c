@@ -25,8 +25,6 @@ int is_palindrome(listint_t **head)
 	if (n == 1 || current->n == current->next->n)
 		return (1);
 	numbers = (int *)malloc(sizeof(int) * n);
-	if (numbers == NULL)
-		return (NULL);
 	while (tmp != NULL)
 	{
 		numbers[i] = tmp->n;
