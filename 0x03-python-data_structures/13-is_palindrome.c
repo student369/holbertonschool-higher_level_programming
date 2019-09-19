@@ -11,6 +11,7 @@ int is_palindrome(listint_t **head)
 {
 	const listint_t *current;
 	listint_t *tmp;
+	int *numbers;
 	unsigned int n, i = 0, sum = 0;
 
 	current = *head;
@@ -21,7 +22,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 		n++;
 	}
-	int numbers[n];
+	numbers = (int *)malloc(sizeof(int) * n);
 
 	while (tmp != NULL)
 	{
@@ -36,6 +37,7 @@ int is_palindrome(listint_t **head)
 			sum -= -1;
 		}
 	}
+	free(numbers);
 	if (sum == n)
 		return (1);
 	else
