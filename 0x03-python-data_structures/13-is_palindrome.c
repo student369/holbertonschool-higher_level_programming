@@ -10,35 +10,53 @@
 int is_palindrome(listint_t **head)
 {
 	const listint_t *current;
+	listint_t **headr;
 	listint_t *tmp;
-	int *numbers;
-	unsigned int n, i = 0, sum = 0;
+	unsigned int n, sum1 = 0, sum2 = 0;
 
 	current = *head;
-	tmp = *head;
+	headr = head;
 	n = 0;
+	sum1 = 0;
+	sum2 = 0;
 	while (current != NULL)
 	{
+		sum1 += (current->n + n);
 		current = current->next;
 		n++;
 	}
-	numbers = (int *)malloc(sizeof(int) * n);
+	tmp = reverse_listint(headr);
+	n = (n - 1);
 	while (tmp != NULL)
 	{
-		numbers[i] = tmp->n;
+		sum2 += (tmp->n + n);
 		tmp = tmp->next;
-		i++;
+		n--;
 	}
-	for (i = 0; i < n; i++)
-	{
-		if (numbers[i] == numbers[((n - 1) - i)])
-		{
-			sum -= -1;
-		}
-	}
-	free(numbers);
-	if (sum == n)
+	if (sum1 == sum2)
 		return (1);
 	else
 		return (0);
+}
+
+/**
+ * reverse_listint - Function to reverse a linked list.
+ * @head: The linked list
+ *
+ * Return: the pointer to the first element
+ */
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *tmp, *prev;
+
+	prev = NULL;
+	while (*head != NULL)
+	{
+		tmp = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = tmp;
+	}
+	*head = prev;
+	return (*head);
 }
