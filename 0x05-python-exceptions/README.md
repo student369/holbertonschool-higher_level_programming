@@ -1,6 +1,6 @@
 # A project to understand the exceptions in Python, mandatory to Holberton School
 
-This is the followed files to this project.
+This project contains the followed files:
 
 | File | Description |
 | ---- | ----------- |
