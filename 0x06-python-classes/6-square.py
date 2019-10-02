@@ -72,7 +72,10 @@ class Square:
         setted previously.
         """
         if self.size == 0:
-            print()
+            if self.position[0] > 0 and self.position[1] > 0:
+                pass
+            else:
+                print()
         else:
             for p0 in range(self.position[1]):
                 print()
