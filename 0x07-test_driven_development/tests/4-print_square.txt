@@ -1,0 +1,43 @@
+# 4-print_square.txt
+===============================
+ How to Use 4-print_square.py
+===============================
+
+This module is very simple, since it only has one function called
+``print_square()`` that prints a quare with the # character.
+
+Numbers
+=======
+
+``print_square()`` returns nothing
+
+::
+    >>> print_square = __import__("4-print_square").print_square #doctest: +REPORT_ONLY_FIRST_FAILURE
+    >>> print_square(4) #doctest: +REPORT_ONLY_FIRST_FAILURE
+    ####
+    ####
+    ####
+    ####
+    >>> print_square(10) #doctest: +REPORT_ONLY_FIRST_FAILURE
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    >>> print_square(0) #doctest: +REPORT_ONLY_FIRST_FAILURE
+    
+    >>> print_square(1) #doctest: +REPORT_ONLY_FIRST_FAILURE
+    #
+
+Posible exceptions.
+
+::
+    >>> print_square(-1) #doctest: +REPORT_ONLY_FIRST_FAILURE
+    Traceback (most recent call last):
+    	      ...
+    ValueError: size must be >= 0
