@@ -1,0 +1,22 @@
+# 5-text_indentation.txt
+===============================
+ How to Use 5-text_indentation.py
+===============================
+
+This module is very simple, since it only has one function called
+``text_indentation()`` that prints the text splited in new lines
+the . ? or : symbols.
+
+Text
+=======
+
+``text_indentation()`` returns nothing
+
+::
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+    >>> text_indentation(".") #doctest: +NORMALIZE_WHITESPACE
+    .
+    >>> text_indentation("?") #doctest: +NORMALIZE_WHITESPACE
+    ?
+    >>> text_indentation(":") #doctest: +NORMALIZE_WHITESPACE
+    :
