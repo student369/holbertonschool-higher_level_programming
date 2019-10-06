@@ -14,10 +14,10 @@ def text_indentation(text):
     Attributes:
         text (str): The text to split
     """
+    if not isinstance(text, str):
+        raise TypeError("text must be an string")
     find = 0
     txt_len = len(text)
-    if not isinstance(text, str):
-        raise TypeError("size must be an string")
     for i in range(txt_len):
         if text[i] == "." or text[i] == "?" or\
            text[i] == ":":
