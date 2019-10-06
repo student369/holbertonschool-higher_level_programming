@@ -23,3 +23,17 @@ Text
     >>> text_indentation(":")
     :
     <BLANKLINE>
+    >>> text_indentation("Holberton School")
+    Holberton School
+    >>> text_indentation("Holberton.School")
+    Holberton.
+    <BLANKLINE>
+    School
+    >>> text_indentation(text=string)
+    Traceback (most recent call last):
+              ...
+    NameError: name 'string' is not defined
+    >>> text_indentation(text=not string)
+    Traceback (most recent call last):
+              ...
+    NameError: name 'string' is not defined
