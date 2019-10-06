@@ -29,6 +29,11 @@ Text
     Holberton.
     <BLANKLINE>
     School
+
+Exceptions
+=======
+
+::
     >>> text_indentation(text=string)
     Traceback (most recent call last):
               ...
@@ -37,3 +42,11 @@ Text
     Traceback (most recent call last):
               ...
     NameError: name 'string' is not defined
+    >>> text_indentation(72)
+    Traceback (most recent call last):
+              ...
+    TypeError: text must be a string
+    >>> text_indentation()
+    Traceback (most recent call last):
+              ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
