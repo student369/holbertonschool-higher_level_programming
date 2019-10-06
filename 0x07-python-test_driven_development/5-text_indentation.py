@@ -15,7 +15,7 @@ def text_indentation(text):
         text (str): The text to split
     """
     if not isinstance(text, str):
-        raise TypeError("text must be an string")
+        raise TypeError("text must be a string")
     find = 0
     txt_len = len(text)
     for i in range(txt_len):
