@@ -31,3 +31,15 @@ Posible exceptions.
     Traceback (most recent call last):
     	      ...
     TypeError: last_name must be a string
+    >>> say_my_name(firstname=string, lastname=string)
+    Traceback (most recent call last):
+    	      ...
+    NameError: name 'string' is not defined
+    >>> say_my_name(firstname=not string, lastname=string => TypeError: first_name must be a string)
+    Traceback (most recent call last):
+    	      ...
+    SyntaxError: invalid syntax
+    >>> say_my_name()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
