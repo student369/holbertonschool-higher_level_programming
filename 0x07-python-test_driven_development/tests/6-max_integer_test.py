@@ -32,12 +32,6 @@ class TestMaxInteger(unittest.TestCase):
         list_integers = [1, 2, 3]
         self.assertEqual(max_integer(list_integers), 3)
 
-    def test_only_integers(self):
-        with self.assertRaises(TypeError) as ct:
-            max_integer([1, 2, "3"])
-        self.assertTrue("list must be a list of \
-integers" in str(ct.exception))
-
 
 if __name__ == "__main__":
     unittest.main()
