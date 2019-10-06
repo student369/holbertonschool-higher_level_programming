@@ -23,6 +23,9 @@ Numbers
     98
     >>> add_integer(100.3, 100.6)
     200
+    >>> import sys
+    >>> add_integer(sys.float_info.max, sys.float_info.max)
+    359538626972463141629054847463408713596141135051689993197834953606314521560057077521179117265533756343080917907028764928468642653778928365536935093407075033972099821153102564152490980180778657888151737016910267884609166473806445896331617118664246696549595652408289446337476354361838599762500808052368249716736
 
 Posible exceptions.
 
@@ -43,3 +46,19 @@ Posible exceptions.
     Traceback (most recent call last):
     	      ...
     TypeError: a must be an integer
+    >>> add_integer(None, 3)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+    >>> add_integer(, 3)
+    Traceback (most recent call last):
+              ...
+    SyntaxError: invalid syntax
+    >>> add_integer(1, float("nan"))
+    Traceback (most recent call last):
+              ...
+    ValueError: cannot convert float NaN to integer
+    >>> add_integer(1, float('abc'))
+    Traceback (most recent call last):
+              ...
+    ValueError: could not convert string to float: 'abc'
