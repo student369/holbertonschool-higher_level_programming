@@ -17,16 +17,16 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     text = text.strip()
-    sp = False
+    el = False
     txt_len = len(text)
     for i in range(txt_len):
         if text[i] == "." or text[i] == "?" or\
            text[i] == ":":
             print("{:s}".format(text[i]), end="\n\n")
-            sp = True
+            el = True
         else:
-            if text[i] == " " and sp:
-                sp = False
-                pass
+            if text[i] == " " and el:
+                continue
             else:
+                el = False
                 print("{:s}".format(text[i]), end="")
