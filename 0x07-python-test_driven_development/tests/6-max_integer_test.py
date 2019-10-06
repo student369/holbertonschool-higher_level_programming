@@ -9,22 +9,22 @@ class TestMaxInteger(unittest.TestCase):
         self.assertIsInstance(max_integer([]), type(None))
     def test_one_element(self):
         l = [11]
-        self.assertEquals(max_integer(l), 11)
+        self.assertEqual(max_integer(l), 11)
     def test_max_at_end(self):
         l = [1, 2, 3]
-        self.assertEquals(max_integer(l), 3)
+        self.assertEqual(max_integer(l), 3)
     def test_max_at_beginning(self):
         l = [3, 2, 1]
-        self.assertEquals(max_integer(l), 3)
+        self.assertEqual(max_integer(l), 3)
     def test_max_at_middle(self):
         l = [1, 3, 2]
-        self.assertEquals(max_integer(l), 3)
+        self.assertEqual(max_integer(l), 3)
     def test_one_negative(self):
         l = [1, 3, -1]
-        self.assertEquals(max_integer(l), 3)
+        self.assertEqual(max_integer(l), 3)
     def test_only_negatives(self):
         l = [-3, -2, -1]
-        self.assertEquals(max_integer(l), -1)
+        self.assertEqual(max_integer(l), -1)
     def test_not_imports(self):
         modu = __import__('6-max_integer')
         self.assertFalse("^[^__]" in list(dir(modu)))
