@@ -29,7 +29,7 @@ Text
     Holberton.
     <BLANKLINE>
     School
-    >>> text_indentation(" Holberton.School? How are you: Bob ")
+    >>> text_indentation("Holberton.School?   How are you: Bob")
     Holberton.
     <BLANKLINE>
     School?
