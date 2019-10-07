@@ -63,6 +63,8 @@ class Rectangle:
 
     def __str__(self):
         """Return a # character rectangle"""
+        if self.height == 0 or self.width == 0:
+            return ("")
         rec = ""
         for i in range(self.height):
             for j in range(self.width):
