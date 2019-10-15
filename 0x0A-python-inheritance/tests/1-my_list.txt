@@ -1,0 +1,39 @@
+# 1-my_list.txt
+===============================
+ How to Use 1-my_list.py
+===============================
+
+This module is very simple, since it only has one class called
+``MyList``.
+
+Numbers
+=======
+
+``MyList(list)`` returns a list object.
+
+::
+    >>> My_list = __import__('1-my_list').MyList
+    >>> my_list = My_list()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Posible exceptions.
+
+::
+
+    >>> my_list = My_list()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append("Hi")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: Must be an integers list.
