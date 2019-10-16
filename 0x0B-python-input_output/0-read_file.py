@@ -14,5 +14,5 @@ def read_file(filename=""):
     """
     if not isinstance(filename, str):
         raise TypeError("It's not a valid filename.")
-    with open(filename) as f:
+    with open(filename, encoding="utf-8") as f:
         print(f.read(), end="")
