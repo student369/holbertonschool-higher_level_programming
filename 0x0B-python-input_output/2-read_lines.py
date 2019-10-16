@@ -31,7 +31,7 @@ ot equals to 0.")
                     break
             else:
                 if not line or i == nb_lines:
-                    break  
+                    break
             print(line, end="")
             i = i + 1
     return (i)
