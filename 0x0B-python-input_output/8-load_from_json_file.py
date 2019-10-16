@@ -18,5 +18,5 @@ def load_from_json_file(filename):
     if not isinstance(filename, str):
         raise TypeError("It's not a valid filename.")
     import json
-    with open(filename, encoding="utf-8") as f:
+    with open(filename, mode="r", encoding="utf-8") as f:
         return (json.loads(f.read()))
