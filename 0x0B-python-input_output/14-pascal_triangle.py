@@ -12,20 +12,16 @@ def pascal_triangle(n):
     A function that returns a list of list of ingegers
     showing the Pascal triangle.
     """
-    pasc = []
-    tmp = None
+    pas = [[1]]
     if not isinstance(n, int):
         raise TypeError("Must be a number")
     if n <= 0:
-        return (pasc)
-    for i in range(n):
-        row = []
-        for j in range(i + 1):
-            val = 1
-            if j >= 1 and j < (i + 1):
-                val = tmp[j] + tmp[j - 1]
-            row.append(val)
-        if i >= 1:
-            tmp = row
-        pasc.append(row)
-    return (pasc)
+        return (list())
+    for i in range(1, n):
+        tmp = [1]
+        last = pas[i - 1]
+        for j in range(1, i):
+            tmp.append(last[j] + last[j - 1])
+        tmp.append(1)
+        pas.append(tmp)
+    return (pas)
