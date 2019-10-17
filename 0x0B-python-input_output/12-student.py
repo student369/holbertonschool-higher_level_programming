@@ -36,15 +36,12 @@ class Student(object):
             attrs: (list of str): A list of
                 specific attributes
         """
-
-        if attrs is not None:
-            if not isinstance(attrs, list):
-                raise TypeError("must be a list")
-            ndic = dict()
-            cdic = self.__dict__
-            attrs = sorted(attrs)
-            for k in attrs:
-                if k in cdic.keys():
-                    ndic.__setitem__(k, cdic[k])
-            return (ndic)
-        return (sorted(self.__dict__))
+        ndic = dict()
+        if attrs is None:
+            for k, v in sorted(self.__dict__.items()):
+                ndic.__setitem__(k, v)
+            return ndic
+        for key in sorted(attrs):
+            if hasattr(self, key):
+                ndic[key] = getattr(self, key)
+        return (ndic)
