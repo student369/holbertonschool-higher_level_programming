@@ -2,7 +2,7 @@
 
 A project to review all the previous concepts
 to get better understanding of how to program
-in Python 3.
+in Python 3 mandatory to Holberton School.
 
 This project contains the following files:
 
