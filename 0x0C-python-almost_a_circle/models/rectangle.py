@@ -96,3 +96,11 @@ class Rectangle(base.Base):
             for j in range(self.width):
                 print("#", end="", file=sys.stdout)
             print(file=sys.stdout)
+
+    def __str__(self):
+        """Returns an string format of the Rectangle"""
+        return ("[Rectangle] ({:s}) {:s}/{:s} - {:s}/{:s}"
+                .format(
+                    str(self.id), str(self.x),
+                    str(self.y), str(self.width),
+                    str(self.height)))
