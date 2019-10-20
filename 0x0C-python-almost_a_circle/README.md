@@ -9,7 +9,7 @@ This project contains the following files:
 | File or Folder | Description |
 | -------------- | ----------- |
 | tests | A folder with the unittest cases to this project. |
-| models/base.py (I), models/__init__.py | A base class and an empty file. |
+| models/base.py (I), models/\_\_init\_\_.py | A base class and an empty file. |
 | models/rectangle.py (I) | A Rectangle class that inherit of the base class |
 | models/rectangle.py (II) | An update to the Rectangle class with validations, setters and instantiation |
 | models/rectangle.py (III) | An update to the Rectangle class with public method. |
