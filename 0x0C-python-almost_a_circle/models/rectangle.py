@@ -84,3 +84,15 @@ class Rectangle(base.Base):
     def area(self):
         """Returns the area of the Rectangle"""
         return (self.width * self.height)
+
+    def display(self):
+        """Returns nothing
+
+        This method print a Square based in the size
+        setted previously.
+        """
+        import sys
+        for i in range(self.height):
+            for j in range(self.width):
+                print("#", end="", file=sys.stdout)
+            print(file=sys.stdout)
