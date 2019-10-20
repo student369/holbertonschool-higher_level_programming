@@ -92,7 +92,14 @@ class Rectangle(base.Base):
         and width given previously.
         """
         import sys
+        if self.y > 0:
+            for nl in range(self.y):
+                print("\n", end="", file=sys.stdout)
         for i in range(self.height):
+            if self.x > 0:
+                for s in range(self.x):
+                    print(" ", end="",
+                          file=sys.stdout)
             for j in range(self.width):
                 print("#", end="", file=sys.stdout)
             print(file=sys.stdout)
