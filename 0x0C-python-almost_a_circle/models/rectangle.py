@@ -111,3 +111,32 @@ class Rectangle(base.Base):
                     str(self.id), str(self.x),
                     str(self.y), str(self.width),
                     str(self.height)))
+
+    def update(self, *args):
+        """Returns nothing
+
+        This method update the parameters of
+        the actual object.
+
+        Args:
+            args[0] (int, optional): The id
+            args[1] (int): The rectangle width
+            args[2] (int): The rectangle height
+            args[3] (int, optional): The x position
+            args[4] (int, optional): The y position
+        """
+        i = 0
+        for arg in args:
+            if i == 0:
+                super().__init__(arg)
+            elif i == 1:
+                self.width = arg
+            elif i == 2:
+                self.height = arg
+            elif i == 3:
+                self.x = arg
+            elif i == 4:
+                self.y = arg
+            else:
+                break
+            i = i + 1
