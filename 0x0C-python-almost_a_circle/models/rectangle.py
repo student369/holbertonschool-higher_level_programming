@@ -88,8 +88,8 @@ class Rectangle(base.Base):
     def display(self):
         """Returns nothing
 
-        This method print a Square based in the size
-        setted previously.
+        This method print a Square based in the higth
+        and width given previously.
         """
         import sys
         for i in range(self.height):
