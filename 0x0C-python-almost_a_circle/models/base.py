@@ -5,6 +5,7 @@
 This module contains the Base class
 """
 import json
+from models import rectangle as r
 
 
 class Base(object):
@@ -60,6 +61,14 @@ dicctionaries")
 
     @staticmethod
     def from_json_string(json_string):
+        """Return an object from the json string"""
         if json_string is None or len(json_string) == 0:
             return (list())
         return (json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Return an instance of the class"""
+        ret = r.Rectangle(1, 1)
+        ret.update(**dictionary)
+        return (ret)
