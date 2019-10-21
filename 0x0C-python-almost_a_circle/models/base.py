@@ -28,3 +28,11 @@ class Base(object):
         else:
             Base.__nb_objects = Base.__nb_objects + 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """Returns a JSON format of the object"""
+        if not isinstance(list_dictionaries, list):
+            raise TypeError("must me a list of \
+dicctionaries")
+        import json
+        return (json.dumps(list_dictionaries))
