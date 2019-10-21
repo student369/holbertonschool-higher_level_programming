@@ -22,7 +22,8 @@ class Square(rectangle.Rectangle):
             y (int, optional): The y position
             id (int, optional): The id
         """
-        super().__init__(size, size, x, y, id)
+        self.size = size
+        super().__init__(self.size, self.size, x, y, id)
 
     def __str__(self):
         """Returns an string format of the Rectangle"""
@@ -30,6 +31,19 @@ class Square(rectangle.Rectangle):
             "[Square] ({:s}) {:s}/{:s} - {:s}"
             .format(
                 str(self.id), str(self.x),
-                str(self.y), str(self.width)
+                str(self.y), str(self.size)
             )
         )
+
+    @property
+    def size(self):
+        """int: The width of the rectangle"""
+        return (self.__width)
+
+    @size.setter
+    def size(self, value):
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width, self.__height = (value, value)
