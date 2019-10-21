@@ -47,3 +47,36 @@ class Square(rectangle.Rectangle):
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width, self.__height = (value, value)
+
+    def update(self, *args, **kwargs):
+        """Returns nothing
+
+        This method update the parameters of
+        the actual object.
+
+        Args:
+            args[0] (int, optional): The id
+            args[1] (int): The square size
+            args[2] (int, optional): The x position
+            args[3] (int, optional): The y position
+        """
+        i = 0
+        if args is not None and len(args) > 0:
+            for arg in args:
+                if i == 0:
+                    self.__init__(
+                        size=self.size,
+                        id=arg
+                    )
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+                else:
+                    break
+                i = i + 1
+        elif kwargs is not None and len(kwargs) > 0:
+            for i, arg in kwargs.items():
+                setattr(self, i, arg)
