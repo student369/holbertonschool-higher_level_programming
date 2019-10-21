@@ -80,3 +80,12 @@ class Square(rectangle.Rectangle):
         elif kwargs is not None and len(kwargs) > 0:
             for i, arg in kwargs.items():
                 setattr(self, i, arg)
+
+    def to_dictionary(self):
+        """Return the dictionary version of this object"""
+        dicver = dict()
+        dicver.__setitem__("id", self.id)
+        dicver.__setitem__("x", self.x)
+        dicver.__setitem__("size", self.size)
+        dicver.__setitem__("y", self.y)
+        return (dicver)
