@@ -23,11 +23,11 @@ class Rectangle(base.Base):
             y (int, optional): The y position
             id (int, optional): The id
         """
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     @property
     def width(self):
@@ -112,7 +112,7 @@ class Rectangle(base.Base):
                     str(self.y), str(self.width),
                     str(self.height)))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Returns nothing
 
         This method update the parameters of
@@ -126,17 +126,22 @@ class Rectangle(base.Base):
             args[4] (int, optional): The y position
         """
         i = 0
-        for arg in args:
-            if i == 0:
-                super().__init__(arg)
-            elif i == 1:
-                self.width = arg
-            elif i == 2:
-                self.height = arg
-            elif i == 3:
-                self.x = arg
-            elif i == 4:
-                self.y = arg
-            else:
-                break
-            i = i + 1
+
+        if args is not None and len(args) > 0:
+            for arg in args:
+                if i == 0:
+                    super().__init__(arg)
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+                else:
+                    break
+                i = i + 1
+        elif kwargs is not None and len(kwargs) > 0:
+            for i, arg in kwargs.items():
+                setattr(self, i, arg)
