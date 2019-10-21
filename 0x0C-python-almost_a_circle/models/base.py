@@ -53,7 +53,6 @@ dicctionaries")
             with open(filename, mode="x", encoding="utf-8") as f:
                 pass
         lo = list()
-        le = len(list_objs)
         for el in list_objs:
             lo.append(el.to_dictionary())
         with open(filename, mode="w", encoding="utf-8") as f:
@@ -72,3 +71,23 @@ dicctionaries")
         ret = r.Rectangle(1, 1)
         ret.update(**dictionary)
         return (ret)
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns an object from a JSON string
+
+        A function that get the Python object
+        from the JSON string in an textfile.
+        """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode="r", encoding="utf-8") as f:
+                pass
+        except IOError:
+            return (list())
+        with open(filename, mode="r", encoding="utf-8") as f:
+            ret = list()
+            lst = Base.from_json_string(f.read())
+            for ins in lst:
+                ret.append(Base.create(**ins))
+            return (ret)
