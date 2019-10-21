@@ -31,8 +31,11 @@ class Base(object):
 
     def to_json_string(list_dictionaries):
         """Returns a JSON format of the object"""
-        if not isinstance(list_dictionaries, list):
+        a = list_dictionaries
+        if a is None or len(a) == 0:
+            return ("[]")
+        if not isinstance(a, list):
             raise TypeError("must me a list of \
 dicctionaries")
         import json
-        return (json.dumps(list_dictionaries))
+        return (json.dumps(a))
