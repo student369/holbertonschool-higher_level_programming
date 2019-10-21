@@ -126,7 +126,6 @@ class Rectangle(base.Base):
             args[4] (int, optional): The y position
         """
         i = 0
-
         if args is not None and len(args) > 0:
             for arg in args:
                 if i == 0:
@@ -145,3 +144,13 @@ class Rectangle(base.Base):
         elif kwargs is not None and len(kwargs) > 0:
             for i, arg in kwargs.items():
                 setattr(self, i, arg)
+
+    def to_dictionary(self):
+        """Return the dictionary version of this object"""
+        dicver = dict()
+        dicver.__setitem__("x", self.x)
+        dicver.__setitem__("y", self.y)
+        dicver.__setitem__("id", self.id)
+        dicver.__setitem__("height", self.height)
+        dicver.__setitem__("width", self.width)
+        return (dicver)
