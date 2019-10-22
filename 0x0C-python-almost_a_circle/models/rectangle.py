@@ -4,10 +4,10 @@
 
 This module contains the Rectangle class
 """
-from models import base
+from models import base as b
 
 
-class Rectangle(base.Base):
+class Rectangle(b.Base):
     """Rectangle class
 
     A simple Rectangle class
