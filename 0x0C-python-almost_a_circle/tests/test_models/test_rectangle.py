@@ -275,5 +275,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_dictionary12(self):
         self.assertFalse(self.o11 == self.o12)
+
+
 if __name__ == "__main__":
     unittest.main()
