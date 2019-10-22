@@ -3,6 +3,8 @@
 """Module Base
 
 This module contains the Base class
+
+Author: José Calderón <jose.calderon@holbertonschool.com>
 """
 import json
 import csv
