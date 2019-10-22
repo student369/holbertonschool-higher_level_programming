@@ -5,6 +5,7 @@
 This module contains the Base class
 """
 import json
+import csv
 import turtle
 from tkinter import *
 
@@ -70,7 +71,11 @@ dicctionaries")
     def create(cls, **dictionary):
         """Return an instance of the class"""
         from models import rectangle as r
-        ret = r.Rectangle(1, 1)
+        from models import square as s
+        if cls.__name__ == "Rectangle":
+            ret = r.Rectangle(1, 1)
+        elif cls.__name__ == "Square":
+            ret = s.Square(1)
         ret.update(**dictionary)
         return (ret)
 
@@ -129,3 +134,88 @@ dicctionaries")
                 t.forward(s.size)
                 t.right(90)
                 t.forward(s.size)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Return nothing
+
+        Save a CSV representation of the
+        objects in a file
+        """
+        filename = cls.__name__ + ".csv"
+        if list_objs is None:
+            with open(filename, mode="x", encoding="utf-8") as f:
+                pass
+        lo = list()
+        for el in list_objs:
+            lo.append(el.to_dictionary())
+        typ, tps, ac = cls.__name__, [0, 1], 0
+        if typ == "Rectangle":
+            ac = tps[0]
+        elif typ == "Square":
+            ac = tps[1]
+        with open(filename, mode="w", encoding="utf-8",
+                  newline="") as f:
+            writer = csv.writer(f)
+            for o in lo:
+                rowl = list()
+                rowl.append(o["id"])
+                if ac == 0:
+                    rowl.append(o["width"])
+                    rowl.append(o["height"])
+                elif ac == 1:
+                    rowl.append(o["size"])
+                rowl.append(o["x"])
+                rowl.append(o["y"])
+                writer.writerow(rowl)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns an object from a JSON string
+
+        A function that get the Python object
+        from the JSON string in an textfile.
+        """
+        filename = cls.__name__ + ".csv"
+        typ, tps, ac = cls.__name__, [0, 1], 0
+        if typ == "Rectangle":
+            ac = tps[0]
+        elif typ == "Square":
+            ac = tps[1]
+        from models import rectangle as r
+        from models import square as s
+        try:
+            with open(filename, mode="r", encoding="utf-8") as f:
+                pass
+        except IOError:
+            return (list())
+        with open(filename, mode="r", encoding="utf-8",
+                  newline="") as f:
+            ret = list()
+            reader = csv.reader(f)
+            for row in reader:
+                i = 0
+                dic = dict()
+                for c in row:
+                    if i == 0:
+                        dic.__setitem__("id", int(c))
+                    elif i == 1 and ac == 0:
+                        dic.__setitem__("width", int(c))
+                    elif i == 1 and ac == 1:
+                        dic.__setitem__("size", int(c))
+                    elif i == 2 and ac == 0:
+                        dic.__setitem__("height", int(c))
+                    elif i == 2 and ac == 1:
+                        dic.__setitem__("x", int(c))
+                    elif i == 3 and ac == 0:
+                        dic.__setitem__("x", int(c))
+                    elif i == 3 and ac == 1:
+                        dic.__setitem__("y", int(c))
+                    elif i == 4 and ac == 0:
+                        dic.__setitem__("y", int(c))
+                    i = i + 1
+                if ac == 0:
+                    ret.append(r.Rectangle.create(**dic))
+                elif ac == 1:
+                    ret.append(s.Square.create(**dic))
+            return (ret)
