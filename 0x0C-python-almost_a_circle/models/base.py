@@ -6,6 +6,7 @@ This module contains the Base class
 """
 import json
 import turtle
+from tkinter import *
 
 
 class Base(object):
