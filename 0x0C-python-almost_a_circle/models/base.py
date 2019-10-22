@@ -5,7 +5,7 @@
 This module contains the Base class
 """
 import json
-from models import rectangle as r
+import turtle
 
 
 class Base(object):
@@ -68,6 +68,7 @@ dicctionaries")
     @classmethod
     def create(cls, **dictionary):
         """Return an instance of the class"""
+        from models import rectangle as r
         ret = r.Rectangle(1, 1)
         ret.update(**dictionary)
         return (ret)
@@ -91,3 +92,39 @@ dicctionaries")
             for ins in lst:
                 ret.append(Base.create(**ins))
             return (ret)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Return nothing
+
+        A function to draw rectangles amd
+        squares in the screen
+        """
+        if list_rectangles is not None\
+           and len(list_rectangles) > 0:
+            for r in list_rectangles:
+                t = turtle.Turtle()
+                t.penup()
+                t.goto(r.x, r.y)
+                t.pendown()
+                t.forward(r.width)
+                t.right(90)
+                t.forward(r.height)
+                t.right(90)
+                t.forward(r.width)
+                t.right(90)
+                t.forward(r.height)
+        if list_squares is not None\
+           and len(list_squares) > 0:
+            for s in list_squares:
+                t = turtle.Turtle()
+                t.penup()
+                t.goto(s.x, s.y)
+                t.pendown()
+                t.forward(s.size)
+                t.right(90)
+                t.forward(s.size)
+                t.right(90)
+                t.forward(s.size)
+                t.right(90)
+                t.forward(s.size)
