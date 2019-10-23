@@ -9,7 +9,6 @@ Author: José Calderón <jose.calderon@holbertonschool.com>
 import json
 import csv
 import turtle
-from tkinter import *
 
 
 class Base(object):
