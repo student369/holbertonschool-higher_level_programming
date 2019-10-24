@@ -24,6 +24,7 @@ class TestSquare(unittest.TestCase):
         b._Base__nb_objects = 0
         self.o5 = Square(10, 2, 1)
         self.o6 = Square(1, 1)
+        self.o7 = Square(11)
 
     def test_module_square_doc(self):
         """Test of the module doc"""
@@ -89,6 +90,7 @@ class TestSquare(unittest.TestCase):
         )
 
     def test_init_area2(self):
+        """Test of the area method"""
         self.assertTrue(self.o2.area(), 9)
 
     def test_display2(self):
@@ -211,6 +213,13 @@ class TestSquare(unittest.TestCase):
     def test_dictionary12(self):
         """Test to verify if both objects are the same"""
         self.assertFalse(self.o5 == self.o6)
+
+    def test_area1(self):
+        """Test to the area function"""
+        self.assertEqual(
+            self.o7.area(),
+            121
+        )
 
 
 if __name__ == "__main__":
