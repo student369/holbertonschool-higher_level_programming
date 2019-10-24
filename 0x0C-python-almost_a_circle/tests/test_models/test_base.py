@@ -7,6 +7,7 @@ import unittest
 
 class TestBase(unittest.TestCase):
     """Base class tests"""
+
     def test_module_doc(self):
         """A test of module doc"""
         self.assertTrue(len(b.__doc__) > 10)
