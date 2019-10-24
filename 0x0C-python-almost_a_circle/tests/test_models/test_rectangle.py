@@ -31,6 +31,9 @@ class TestRectangle(unittest.TestCase):
         b._Base__nb_objects = 0
         self.o11 = Rectangle(10, 2, 1, 9)
         self.o12 = Rectangle(1, 1)
+        b._Base__nb_objects = 0
+        self.o13 = Rectangle(10, 7, 2, 8)
+        self.o14 = Rectangle(2, 4)
 
     def test_module_rectangle_doc(self):
         """Test to verify the module doc"""
