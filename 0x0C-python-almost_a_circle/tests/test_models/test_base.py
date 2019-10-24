@@ -6,12 +6,6 @@ import unittest
 
 class TestBase(unittest.TestCase):
     """Base class tests"""
-    def setUp(self):
-        o = b.Base(0)
-
-    def tearDown(self):
-        o = b.Base(0)
-
     def test_module_doc(self):
         self.assertTrue(len(b.__doc__) > 10)
 
