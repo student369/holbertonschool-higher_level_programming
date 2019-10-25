@@ -70,13 +70,15 @@ dicctionaries")
 
     @classmethod
     def create(cls, **dictionary):
-        """Return an instance of the class"""
-        from models import rectangle as r
-        from models import square as s
+        """Return an instance of the class
+
+        Args:
+            dictionary (dict)
+        """
         if cls.__name__ == "Rectangle":
-            ret = r.Rectangle(1, 1)
-        elif cls.__name__ == "Square":
-            ret = s.Square(1)
+            ret = cls(1, 1)
+        if cls.__name__ == "Square":
+            ret = cls(1)
         ret.update(**dictionary)
         return (ret)
 
@@ -95,9 +97,9 @@ dicctionaries")
             return (list())
         with open(filename, mode="r", encoding="utf-8") as f:
             ret = list()
-            lst = Base.from_json_string(f.read())
+            lst = cls.from_json_string(f.read())
             for ins in lst:
-                ret.append(Base.create(**ins))
+                ret.append(cls.create(**ins))
             return (ret)
 
     @staticmethod
