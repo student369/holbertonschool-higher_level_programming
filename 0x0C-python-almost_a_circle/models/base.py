@@ -52,12 +52,10 @@ dicctionaries")
         Save a JSON representation of the object in a file
         """
         filename = cls.__name__ + ".json"
-        if list_objs is None:
-            with open(filename, mode="x", encoding="utf-8") as f:
-                pass
         lo = list()
-        for el in list_objs:
-            lo.append(el.to_dictionary())
+        if list_objs is not None:
+            for i in range(len(list_objs)):
+                lo.append(cls.to_dictionary(list_objs[i]))
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write(cls.to_json_string(lo))
 
