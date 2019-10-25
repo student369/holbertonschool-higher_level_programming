@@ -59,7 +59,7 @@ dicctionaries")
         for el in list_objs:
             lo.append(el.to_dictionary())
         with open(filename, mode="w", encoding="utf-8") as f:
-            f.write(Base.to_json_string(lo))
+            f.write(cls.to_json_string(lo))
 
     @staticmethod
     def from_json_string(json_string):
