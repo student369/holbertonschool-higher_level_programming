@@ -1,12 +1,25 @@
 #!/usr/bin/python3
 """Unittest for Base class"""
 import models.base as b
+import pep8
 from models.base import Base
 import unittest
 
 
 class TestBase(unittest.TestCase):
     """Base class tests"""
+
+    def test_pep8(self):
+        """test the pep8 in the files"""
+        p8 = pep8.StyleGuide(quiet=True)
+        ret = p8.check_files(
+            ['models/base.py',
+             'models/rectangle.py',
+             'models/square.py']
+        )
+        self.assertEqual(
+            ret.total_errors, 0,
+            "Pep 8 errors")
 
     def test_module_doc(self):
         """A test of module doc"""
