@@ -15,7 +15,10 @@ class TestBase(unittest.TestCase):
         ret = p8.check_files(
             ['models/base.py',
              'models/rectangle.py',
-             'models/square.py']
+             'models/square.py',
+             'tests/test_models/test_base.py',
+             'tests/test_models/test_rectangle.py',
+             'tests/test_models/test_square.py']
         )
         self.assertEqual(
             ret.total_errors, 0,
