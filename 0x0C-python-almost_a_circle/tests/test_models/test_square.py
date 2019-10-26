@@ -2,6 +2,7 @@
 """Unittest for Square class"""
 import unittest
 import io
+import os
 import sys
 import models.square as s
 from models.square import Square
@@ -25,6 +26,7 @@ class TestSquare(unittest.TestCase):
         self.o5 = Square(10, 2, 1)
         self.o6 = Square(1, 1)
         self.o7 = Square(11)
+        self.o8 = Square(12)
 
     def test_module_square_doc(self):
         """Test of the module doc"""
@@ -220,6 +222,20 @@ class TestSquare(unittest.TestCase):
             self.o7.area(),
             121
         )
+
+    def test_load_file(self):
+        """Test to the load file"""
+        path = "Square.json"
+        if os.path.exists(path):
+            os.remove(path)
+        list_square = [self.o8]
+        Square.save_to_file(list_square)
+        out = Square.load_from_file()
+        ous = ""
+        for sqloc in out:
+            ous = sqloc
+            break
+        self.assertEqual(str(ous), "[Square] (4) 0/0 - 12")
 
 
 if __name__ == "__main__":
