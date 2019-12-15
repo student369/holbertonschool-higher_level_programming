@@ -20,7 +20,10 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
-    sql = "SELECT * FROM states ORDER BY states.id;"
-    result = engine.execute(sql)
-    state = result.fetchone()
-    print("{:d}: {:s}".format(state.id, state.name))
+    Session = sessionmake(bind=engine)
+    sess = Session()
+    state = sess.query(State).first()
+    if state:
+        print("{:d}: {:s}".format(state.id, state.name))
+    else:
+        print("Nothing")
