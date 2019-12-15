@@ -20,7 +20,8 @@ if __name__ == "__main__":
                          user=u, passwd=p, db=d)
     cur = db.cursor()
     cur.execute("SELECT id, name FROM states WHERE \
-    states.name LIKE ORDER BY states.id;")
+    states.name LIKE 'N%' COLLATED latin1_general_cs \
+ORDER BY states.id;")
     rows = cur.fetchall()
     for r in rows:
         if r[1][0] == 'N':
