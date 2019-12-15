@@ -3,7 +3,8 @@
 """
 import sys
 from model_state import Base, State
-
+from model_city import City
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
@@ -20,9 +21,16 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
-    sql = "SELECT s.name, c.id, c.name FROM states AS s \
-INNER JOIN cities AS c ON c.state_id = s.id ORDER BY c.id;"
-    result = engine.execute(sql)
-    states = result.fetchall()
+    Session = sessionmaker(bind=engine)
+    sess = Session()
+    sql = sess.query(State, City).filter(
+        State.id == City.state_id
+    )
+    states = sql.all()
     for s in states:
-        print("{:s}: ({:d}) {:s}".format(s[0], s[1], s[2]))
+        print("{:s}: ({:d}) {:s}".format(
+            s.State.name,
+            s.City.id,
+            s.City.name)
+        )
+    sess.close()
