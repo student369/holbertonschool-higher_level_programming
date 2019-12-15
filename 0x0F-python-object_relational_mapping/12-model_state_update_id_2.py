@@ -20,14 +20,6 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
-    """
-    sql = "SELECT * FROM states ORDER BY states.id;"
-    result = engine.execute(sql)
-    states = result.fetchall()
-    result = engine.execute(states.insert(),
-                   [{name: "Louisiana"}]
-    )
-    """
     states = State.__table__
     conn = engine.connect()
     stmt = states.update().where(
