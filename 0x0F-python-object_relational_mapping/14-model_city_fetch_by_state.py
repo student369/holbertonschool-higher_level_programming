@@ -21,7 +21,7 @@ if __name__ == "__main__":
     )
     Base.metadata.create_all(engine)
     sql = "SELECT s.name, c.id, c.name FROM states AS s \
-INNER JOIN cities AS c ON c.state_id = s.id ORDER BY s.name;"
+INNER JOIN cities AS c ON c.state_id = s.id ORDER BY c.id;"
     result = engine.execute(sql)
     states = result.fetchall()
     for s in states:
