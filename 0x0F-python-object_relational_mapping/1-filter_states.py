@@ -19,12 +19,11 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3396,
                          user=u, passwd=p, db=d)
     cur = db.cursor()
-    let = 'N'
     cur.execute("SELECT id, name FROM states WHERE \
-    states.name LIKE '{:s}%' ORDER BY states.id;".format(let))
+    states.name LIKE ORDER BY states.id;")
     rows = cur.fetchall()
     for r in rows:
-        if r[1][0] == let:
+        if r[1][0] == 'N':
             print(r)
     cur.close()
     db.close()
