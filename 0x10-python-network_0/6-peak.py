@@ -13,10 +13,12 @@ def find_peak(list_of_integers):
     Args:
         list_of_integers (list): The numners list.
     """
-    if list_of_integers == []:
+    li = list_of_integers
+    if li == []:
         return (None)
-    mx = list_of_integers[0]
-    for i in range(len(list_of_integers)):
-        if list_of_integers[i] > mx:
-            mx = list_of_integers[i]
-    return (mx)
+    if len(li) == 1:
+        return (li[0])
+    if li[0] > li[len(li) -1]:
+        return (find_peak(li[:(len(li) + 1)//2])
+    else:
+        return (find_peak(li[(len(li))//2:])
