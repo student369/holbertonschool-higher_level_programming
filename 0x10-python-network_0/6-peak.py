@@ -18,7 +18,7 @@ def find_peak(list_of_integers):
         return (None)
     if len(li) == 1:
         return (li[0])
-    if li[0] > li[len(li) -1]:
-        return (find_peak(li[:(len(li) + 1)//2])
+    if li[0] > li[len(li) - 1]:
+        return (find_peak(li[:(len(li) + 1)//2]))
     else:
-        return (find_peak(li[(len(li))//2:])
+        return (find_peak(li[(len(li))//2:]))
