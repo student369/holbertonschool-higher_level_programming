@@ -8,21 +8,17 @@ import sys
 if __name__ == "__main__":
     try:
         url = "http://0.0.0.0:5000/search_user"
-        if sys.argc < 2:
-            data = {"q": ""}
-        else:
-            data = {"q": sys.argv[1]}
-        r = requests.post(url, data)
-        try:
-            if r.json == "":
-                print("No result")
-                exit()
-            if json.loads(r.json):
-                dic = json.loads(r.json)
-                print("[{}] {}".format(
-                    dic["id"], dic["name"]))
-        except ValueError:
+        argc = len(sys.argv)
+        values = {"q": ""}
+        if argc >= 2:
+            values = {"q": sys.argv[1]}
+        r = requests.post(url, data=values)
+        rjson = r.json()
+        if r.headers["content-type"] is "application/json":
             print("Not a valid JSON")
-            exit()
+        elif len(rjson) == 0:
+            print("No result")
+        else:
+            print("[{}] {}".format(rjson.get("id"), rjson.get("name")))
     except IndexError:
         pass
