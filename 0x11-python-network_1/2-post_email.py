@@ -15,6 +15,6 @@ if __name__ == "__main__":
         req = urllib.request.Request(url, data)
         with urllib.request.urlopen(req) as r:
             html = r.read()
-            print("Your email is: {}".format(html.decode("UTF-8")))
+            print("{}".format(html.decode("UTF-8")))
     except IndexError:
         pass
