@@ -1,16 +1,14 @@
 #!/usr/bin/node
 
-const Sqr = require('./5-square').Square;
+const SquareParent = require('./5-square');
 
-function Square (size) {
-  Sqr.call(this, size);
-}
-
-Square.prototype = Object.create(Square.prototype);
-Square.constructor = Square;
-
-Square.prototype.charPrint = function (c = 'X') {
-  this.print(c);
+module.exports = class Square extends SquareParent {
+  charPrint (c) {
+    if (c === undefined) {
+      c = 'X';
+    }
+    for (let h = this.height; h > 0; h--) {
+      console.log(c.repeat(this.width));
+    }
+  }
 };
-
-exports.Square = Square;
