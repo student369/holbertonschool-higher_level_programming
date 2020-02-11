@@ -1,2 +1,2 @@
-const $ = window.$
+const $ = window.$;
 $('header').css('color', 'red');
