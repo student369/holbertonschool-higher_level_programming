@@ -1,3 +1,5 @@
 #!/usr/bin/node
 
-exports.Rectangle = function Rectangle () {};
+module.exports = class Rectangle {
+    Rectangle () {}
+};
