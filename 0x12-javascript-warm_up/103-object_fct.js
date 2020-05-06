@@ -4,8 +4,8 @@ const myObject = {
   value: 12
 };
 console.log(myObject);
-myObject['incr'] = function () {
-  let retval = this.value += 1;
+myObject.incr = function () {
+  const retval = this.value += 1;
   return retval;
 };
 
